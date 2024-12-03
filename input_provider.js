@@ -40,7 +40,7 @@ export async function output(day, answer) {
 }
 
 export async function lines(day) {
-    const text = await input(2);
+    const text = await input(day);
     const lines = text.split('\n');
     lines.pop();
     return lines;
