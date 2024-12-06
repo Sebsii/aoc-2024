@@ -45,3 +45,12 @@ export async function lines(day) {
     lines.pop();
     return lines;
 }
+
+export async function twoParts(day) {
+    const text = await input(day);
+    const parts = text.split("\n\n");
+
+    const arrayParts = parts.map(p => p.split('\n'));
+    arrayParts[1].pop();
+    return arrayParts;
+}
