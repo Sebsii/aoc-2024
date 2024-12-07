@@ -54,3 +54,11 @@ export async function twoParts(day) {
     arrayParts[1].pop();
     return arrayParts;
 }
+
+export async function twoD(day) {
+    const text = await input(day);
+    const lines = text.split('\n');
+    const map = lines.map(l => l.split(''));
+    map.pop();
+    return map;
+}
