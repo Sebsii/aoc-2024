@@ -8,27 +8,21 @@ const dirs = [
     [0, -1],
     [1, 0],
 ]
-let sum = 0;
-
+let nines = 0;
 for (let r = 0; r < map.length; r++) {
     for (let c = 0; c < map[0].length; c++) {
-        const trails = new Set();
-        let path = [];
         const trailhead = parseInt(map[r][c]);
         if (trailhead !== 0) continue;
-        moveInAllDirs(r, c, trails, path);
-        sum += trails.size;
+        moveInAllDirs(r, c);
     }
 }
 
-console.log(sum);
+console.log(nines);
 
-function moveInAllDirs(r, c, results, path) {
+function moveInAllDirs(r, c) {
     const height = parseInt(map[r][c]);
-    path = path.slice(0, height + 1);
-    path.push(r + '|' + c)
     if (height === 9) {
-        results.add(path.join(','))
+        nines++;
         return;
     }
 
@@ -41,6 +35,6 @@ function moveInAllDirs(r, c, results, path) {
             continue;
         }
         if (height + 1 !== next) continue;
-        moveInAllDirs(r + dir[0], c + dir[1], results, path);
+        moveInAllDirs(r + dir[0], c + dir[1]);
     }
 }
